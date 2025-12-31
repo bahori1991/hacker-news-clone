@@ -1,11 +1,11 @@
 {
   "name": "@packages/shared",
-  "private": true,
-  "type": "module",
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*"
+  },
   "exports": {
     "./types": "./src/types.ts"
   },
-  "devDependencies": {
-    "@packages/tsconfig": "workspace:*"
-  }
+  "private": true,
+  "type": "module"
 }

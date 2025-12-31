@@ -8,7 +8,8 @@
   "dependencies": {
     "@packages/env": "workspace:*",
     "@packages/db": "workspace:*",
-    "better-auth": "^1.4.9"
+    "better-auth": "^1.4.9",
+    "zod": "^4.3.2"
   },
   "devDependencies": {
     "@packages/tsconfig": "workspace:*"

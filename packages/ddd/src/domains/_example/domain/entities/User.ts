@@ -1,20 +1,20 @@
-import type { UserCreatedAt } from "@/domains/User/domain/value-objects/UserCreatedAt";
-import type { UserEmail } from "@/domains/User/domain/value-objects/UserEmail";
-import type { UserEmailVerified } from "@/domains/User/domain/value-objects/UserEmailVerified";
-import type { UserId } from "@/domains/User/domain/value-objects/UserId";
-import type { UserImage } from "@/domains/User/domain/value-objects/UserImage";
-import type { UserName } from "@/domains/User/domain/value-objects/UserName";
-import type { UserUpdatedAt } from "@/domains/User/domain/value-objects/UserUpdatedAt";
+import type { UserCreatedAt } from "@/domains/_example/domain/value-objects/UserCreatedAt";
+import type { UserEmail } from "@/domains/_example/domain/value-objects/UserEmail";
+import type { UserEmailVerified } from "@/domains/_example/domain/value-objects/UserEmailVerified";
+import type { UserId } from "@/domains/_example/domain/value-objects/UserId";
+import type { UserImage } from "@/domains/_example/domain/value-objects/UserImage";
+import type { UserName } from "@/domains/_example/domain/value-objects/UserName";
+import type { UserUpdatedAt } from "@/domains/_example/domain/value-objects/UserUpdatedAt";
 import { Entity, type EntityProps } from "@/libs/Entity";
 
-export interface UserProps extends EntityProps<UserId> {
+export type UserProps = EntityProps<UserId> & {
   createdAt: UserCreatedAt;
   updatedAt: UserUpdatedAt;
   email: UserEmail;
   emailVerified: UserEmailVerified;
   name: UserName;
   image?: UserImage;
-}
+};
 
 export class User extends Entity<UserProps> {
   public get name(): UserName {

@@ -1,12 +1,30 @@
+import { auth } from "@packages/auth";
 import type { ErrorResponse } from "@packages/shared/types";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
+import type { Context } from "./context";
+import { corsMiddleware } from "./middlewares/cors";
+import { authRoutes } from "./routes/auth";
 
-const app = new Hono();
+const app = new Hono<Context>();
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
+app.use("*", corsMiddleware(), async (c, next) => {
+  const session = await auth.api.getSession({
+    headers: c.req.raw.headers,
+  });
+
+  if (!session || !session.user) {
+    c.set("user", null);
+    c.set("session", null);
+    return next();
+  }
+
+  c.set("session", session.session);
+  c.set("user", session.user);
+  return next();
 });
+
+const routes = app.basePath("/api").route("/auth", authRoutes);
 
 app.onError((err, c) => {
   if (err instanceof HTTPException) {
@@ -39,3 +57,4 @@ app.onError((err, c) => {
 });
 
 export default app;
+export type ApiRoutes = typeof routes;

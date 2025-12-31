@@ -1,0 +1,31 @@
+POST http://localhost:8080/api/auth/sign-up/email
+Content-Type: application/json
+Origin: http://localhost:3000
+
+{
+  "name": "bahori1991",
+  "email": "bahori1991ms@gmail.com",
+  "password": "srkw15140"
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-in/email
+Content-Type: application/json
+Origin: http://localhost:3000
+
+{
+  "email": "bahori1991ms@gmail.com",
+  "password": "srkw15140"
+}
+
+###
+
+GET http://localhost:8080/api/auth/user
+Origin: http://localhost:3000
+
+###
+
+POST http://localhost:8080/api/auth/sign-out
+Content-Type: application/json
+Origin: http://localhost:3000
