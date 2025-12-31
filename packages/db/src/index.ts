@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as authSchema from "./schemas/auth";
 
-export { eq } from "drizzle-orm";
+export * from "drizzle-orm";
 
 export const schema = {
   ...authSchema,

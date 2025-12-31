@@ -12,6 +12,7 @@
     "@packages/auth": "workspace:*",
     "@packages/db": "workspace:*",
     "@packages/env": "workspace:*",
+    "@packages/shared": "workspace:*",
     "hono": "^4.11.3",
     "zod": "^4.2.1"
   },
