@@ -1,0 +1,30 @@
+{
+  "name": "@packages/ui",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./styles.css": "./src/styles/styles.css",
+    "./libs/*": "./src/libs/*.ts",
+    "./hooks/*": "./src/hooks/*.ts",
+    "./components/*": "./src/components/*.tsx"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "@tailwindcss/vite": "^4.1.18",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.562.0",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*",
+    "@types/bun": "^1.3.5",
+    "@types/react": "^19.2.7",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "tw-animate-css": "^1.4.0",
+    "vite": "^7.3.0",
+    "vite-tsconfig-paths": "^6.0.3"
+  }
+}

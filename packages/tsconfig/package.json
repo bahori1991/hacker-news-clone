@@ -1,0 +1,5 @@
+{
+  "name": "@packages/tsconfig",
+  "private": true,
+  "type": "module"
+}

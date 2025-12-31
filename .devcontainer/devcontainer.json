@@ -1,0 +1,53 @@
+{
+  "name": "hacker-news-clone",
+  "dockerComposeFile": ["compose.yaml"],
+  "service": "app",
+  "remoteUser": "appuser",
+  "workspaceFolder": "/home/appuser/workspace",
+  "mounts": [
+    "source=${localEnv:HOME}/.bashrc,target=/home/appuser/.bashrc,type=bind,readonly",
+    "source=${localEnv:HOME}/.ssh,target=/home/appuser/.ssh,type=bind"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "TZ": "Asia/Tokyo",
+    "PGTZ": "Asia/Tokyo",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "LC_CTYPE": "C.UTF-8",
+    "LC_COLLATE": "C.UTF-8"
+  },
+  "forwardPorts": [3000, 5432, 8080],
+  "portsAttributes": {
+    "3000": {
+      "label": "Web",
+      "onAutoForward": "notify"
+    },
+    "5432": {
+      "label": "Database",
+      "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "bradlc.vscode-tailwindcss",
+        "biomejs.biome",
+        "humao.rest-client"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "shutdownAction": "stopCompose"
+}

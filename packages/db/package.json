@@ -1,0 +1,28 @@
+{
+  "name": "@packages/db",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schemas/*": "./src/schemas/*.ts"
+  },
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@packages/env": "workspace:*",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
+    "pg": "^8.16.3",
+    "inversify": "^7.10.8"
+  },
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*",
+    "@types/pg": "^8.16.0",
+    "@types/bun": "^1.3.5",
+    "drizzle-kit": "^0.31.8"
+  }
+}

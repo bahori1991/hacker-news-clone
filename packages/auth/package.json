@@ -1,0 +1,16 @@
+{
+  "name": "@packages/auth",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@packages/env": "workspace:*",
+    "@packages/db": "workspace:*",
+    "better-auth": "^1.4.9"
+  },
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*"
+  }
+}

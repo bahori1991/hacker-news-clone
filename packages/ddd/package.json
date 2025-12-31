@@ -1,0 +1,16 @@
+{
+  "name": "@packages/ddd",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@packages/auth": "workspace:*",
+    "@packages/db": "workspace:*",
+    "es-toolkit": "^1.43.0",
+    "inversify": "^7.10.8",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*"
+  }
+}
