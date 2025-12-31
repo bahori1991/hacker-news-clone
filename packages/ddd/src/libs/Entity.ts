@@ -1,9 +1,7 @@
 import type { EntityId } from "@/libs/EntityId";
-import type { ValueOf } from "@/libs/ValueObject";
+import type { ValueOf } from "@/libs/ValueObject.base";
 
-export interface EntityProps<
-  I extends EntityId<unknown, string> = EntityId<unknown, string>,
-> {
+export interface EntityProps<I extends EntityId<unknown, string>> {
   id: I;
 }
 
