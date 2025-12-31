@@ -1,7 +1,6 @@
 import type { ErrorResponse } from "@packages/shared/types";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
-import { authRoutes } from "./routes/auth";
 
 const app = new Hono();
 

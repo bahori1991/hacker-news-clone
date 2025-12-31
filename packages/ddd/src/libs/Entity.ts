@@ -1,15 +1,19 @@
 import type { EntityId } from "@/libs/EntityId";
 import type { ValueOf } from "@/libs/ValueObject";
 
-export interface EntityProps<I extends EntityId<unknown> = EntityId<unknown>> {
+export interface EntityProps<
+  I extends EntityId<unknown, string> = EntityId<unknown, string>,
+> {
   id: I;
 }
 
-export type ValueOfEntityProps<P extends EntityProps> = {
+export type ValueOfEntityProps<
+  P extends EntityProps<EntityId<unknown, string>>,
+> = {
   [K in keyof P]: ValueOf<P[K]>;
 };
 
-export abstract class Entity<P extends EntityProps> {
+export abstract class Entity<P extends EntityProps<EntityId<unknown, string>>> {
   readonly #id: P["id"];
   #props: Omit<P, "id">;
 

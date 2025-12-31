@@ -1,17 +1,23 @@
 import { isEqual } from "es-toolkit";
 import { deepFreeze } from "./deepFreeze";
 
-// BrandedValue is a type that adds a brand to a value
 declare const brandSymbol: unique symbol;
-export type BrandedValue<T, B> = T & {
+
+export type BrandedValue<T, B, C extends Category> = T & {
   readonly [brandSymbol]: B;
+  readonly category: C;
 };
 
-// ValueOf is a type that extracts the value type from a ValueObject
-export type ValueOf<V> = V extends ValueObject<infer T, string> ? T : never;
+export type ValueOf<V> =
+  V extends ValueObject<infer T, infer _B, infer _C> ? T : V;
 
-// ValueObject is a base class for all value objects
-export abstract class ValueObject<T, B extends string = string> {
+export type Category = "ValueObject" | "EntityId";
+
+export abstract class ValueObject<
+  T,
+  B extends string,
+  C extends Category = "ValueObject",
+> {
   readonly #value: T;
 
   public constructor(value: T) {
@@ -26,8 +32,8 @@ export abstract class ValueObject<T, B extends string = string> {
 
   protected abstract validate(value: T): void;
 
-  public get value(): BrandedValue<T, B> {
-    return this.#value as BrandedValue<T, B>;
+  public get value(): BrandedValue<T, B, C> {
+    return this.#value as BrandedValue<T, B, C>;
   }
 
   public equals(other: this | null | undefined): boolean {
