@@ -29,3 +29,41 @@ Origin: http://localhost:3000
 POST http://localhost:8080/api/auth/sign-out
 Content-Type: application/json
 Origin: http://localhost:3000
+
+###
+
+POST http://localhost:8080/api/posts
+Content-Type: application/x-www-form-urlencoded
+Origin: http://localhost:3000
+
+title=Test&content=This_is_a_test_post
+
+###
+
+GET http://localhost:8080/api/posts
+Origin: http://localhost:3000
+
+###
+
+POST http://localhost:8080/api/posts/1/upvote
+Origin: http://localhost:3000
+
+###
+
+POST http://localhost:8080/api/posts/1/comment
+Content-Type: application/x-www-form-urlencoded
+Origin: http://localhost:3000
+
+content=This_is_a_test_comment
+
+###
+
+GET http://localhost:8080/api/posts/1/comments
+Origin: http://localhost:3000
+
+###
+
+GET http://localhost:8080/api/posts/1
+Origin: http://localhost:3000
+
+###

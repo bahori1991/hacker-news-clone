@@ -1,4 +1,5 @@
-import { auth, type User } from "@packages/auth";
+import { auth } from "@packages/auth/server";
+import type { User } from "@packages/auth/types";
 import type { SuccessResponse } from "@packages/shared/types";
 import { Hono } from "hono";
 import type { Context } from "../context";

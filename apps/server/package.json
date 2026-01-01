@@ -9,6 +9,7 @@
     "start": "bun run dist/index.js"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.7.6",
     "@packages/auth": "workspace:*",
     "@packages/db": "workspace:*",
     "@packages/env": "workspace:*",

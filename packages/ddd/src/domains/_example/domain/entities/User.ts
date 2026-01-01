@@ -5,9 +5,10 @@ import type { UserId } from "@/domains/_example/domain/value-objects/UserId";
 import type { UserImage } from "@/domains/_example/domain/value-objects/UserImage";
 import type { UserName } from "@/domains/_example/domain/value-objects/UserName";
 import type { UserUpdatedAt } from "@/domains/_example/domain/value-objects/UserUpdatedAt";
-import { Entity, type EntityProps } from "@/libs/Entity";
+import { Entity } from "@/libs/Entity";
 
-export type UserProps = EntityProps<UserId> & {
+export type UserProps = {
+  id: UserId;
   createdAt: UserCreatedAt;
   updatedAt: UserUpdatedAt;
   email: UserEmail;

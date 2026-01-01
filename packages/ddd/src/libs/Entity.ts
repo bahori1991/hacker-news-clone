@@ -1,17 +1,18 @@
-import type { EntityId } from "@/libs/EntityId";
-import type { ValueOf } from "@/libs/ValueObject.base";
+import type { EntityId, ValueOf } from "@/libs/ValueObject";
 
-export type EntityProps<I extends EntityId<unknown, string>> = {
+export type BaseEntityProps<I extends EntityId<unknown, string>> = {
   id: I;
 };
 
 export type ValueOfEntityProps<
-  P extends EntityProps<EntityId<unknown, string>>,
+  P extends BaseEntityProps<EntityId<unknown, string>>,
 > = {
   [K in keyof P]: ValueOf<P[K]>;
 };
 
-export abstract class Entity<P extends EntityProps<EntityId<unknown, string>>> {
+export abstract class Entity<
+  P extends BaseEntityProps<EntityId<unknown, string>>,
+> {
   readonly #id: P["id"];
   #props: Omit<P, "id">;
 

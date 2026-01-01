@@ -1,10 +1,11 @@
-import { auth } from "@packages/auth";
+import { auth } from "@packages/auth/server";
 import type { ErrorResponse } from "@packages/shared/types";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import type { Context } from "./context";
 import { corsMiddleware } from "./middlewares/cors";
 import { authRoutes } from "./routes/auth";
+import { postsRoutes } from "./routes/posts";
 
 const app = new Hono<Context>();
 
@@ -24,7 +25,10 @@ app.use("*", corsMiddleware(), async (c, next) => {
   return next();
 });
 
-const routes = app.basePath("/api").route("/auth", authRoutes);
+const routes = app
+  .basePath("/api")
+  .route("/auth", authRoutes)
+  .route("/posts", postsRoutes);
 
 app.onError((err, c) => {
   if (err instanceof HTTPException) {

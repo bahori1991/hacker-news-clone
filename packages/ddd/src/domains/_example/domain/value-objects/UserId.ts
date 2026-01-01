@@ -1,5 +1,5 @@
 import z from "zod";
-import { EntityId } from "@/libs/EntityId";
+import { EntityId } from "@/libs/ValueObject";
 
 export class UserId extends EntityId<string, "userId"> {
   public static readonly schema = z.string();

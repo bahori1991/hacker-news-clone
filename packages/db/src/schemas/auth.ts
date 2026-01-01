@@ -1,5 +1,8 @@
 import { relations } from "drizzle-orm";
 import { boolean, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { commentsTable } from "./comments";
+import { postsTable } from "./posts";
+import { commentUpvotesTable, postUpvotesTable } from "./upvotes";
 
 export const usersTable = pgTable("users", {
   id: text("id").primaryKey(),
@@ -65,7 +68,7 @@ export const accountsTable = pgTable(
   ],
 );
 
-export const verifications = pgTable(
+export const verificationsTable = pgTable(
   "verifications",
   {
     id: text("id").primaryKey(),
@@ -84,6 +87,10 @@ export const verifications = pgTable(
 export const usersRelations = relations(usersTable, ({ many }) => ({
   sessions: many(sessionsTable),
   accounts: many(accountsTable),
+  posts: many(postsTable, { relationName: "author" }),
+  comments: many(commentsTable, { relationName: "author" }),
+  postUpvotes: many(postUpvotesTable, { relationName: "postUpvotes" }),
+  commentUpvotes: many(commentUpvotesTable, { relationName: "commentUpvotes" }),
 }));
 
 export const sessionsRelations = relations(sessionsTable, ({ one }) => ({
