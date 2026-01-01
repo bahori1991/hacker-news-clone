@@ -70,10 +70,10 @@ export type PaginatedResponse<T> = {
   data: T;
 } & Omit<SuccessResponse<unknown>, "data">;
 
-const sortBySchema = z.enum(["points", "recent"]);
-const orderSchema = z.enum(["asc", "desc"]);
+export const sortBySchema = z.enum(["points", "recent"]);
+export const orderSchema = z.enum(["asc", "desc"]);
 
-const paginationSchema = z.object({
+export const paginationSchema = z.object({
   limit: z.coerce.number().optional().default(10),
   page: z.coerce.number().optional().default(1),
   sortBy: sortBySchema.optional().default("points"),

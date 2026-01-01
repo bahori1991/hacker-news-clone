@@ -5,6 +5,7 @@ import { HTTPException } from "hono/http-exception";
 import type { Context } from "./context";
 import { corsMiddleware } from "./middlewares/cors";
 import { authRoutes } from "./routes/auth";
+import { commentsRoutes } from "./routes/comments";
 import { postsRoutes } from "./routes/posts";
 
 const app = new Hono<Context>();
@@ -28,7 +29,8 @@ app.use("*", corsMiddleware(), async (c, next) => {
 const routes = app
   .basePath("/api")
   .route("/auth", authRoutes)
-  .route("/posts", postsRoutes);
+  .route("/posts", postsRoutes)
+  .route("/comments", commentsRoutes);
 
 app.onError((err, c) => {
   if (err instanceof HTTPException) {
