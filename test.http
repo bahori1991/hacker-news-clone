@@ -58,7 +58,7 @@ content=This_is_a_test_comment
 
 ###
 
-GET http://localhost:8080/api/posts/1/comments
+GET http://localhost:8080/api/posts/1/comments?includeChildren=true
 Origin: http://localhost:3000
 
 ###
@@ -67,3 +67,18 @@ GET http://localhost:8080/api/posts/1
 Origin: http://localhost:3000
 
 ###
+
+POST http://localhost:8080/api/comments/2
+Content-Type: application/x-www-form-urlencoded
+Origin: http://localhost:3000
+
+content=sample%20comment
+###
+
+POST http://localhost:8080/api/comments/2/upvote
+Origin: http://localhost:3000
+
+###
+
+GET http://localhost:8080/api/comments/2/comments
+Origin: http://localhost:3000

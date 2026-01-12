@@ -1,5 +1,6 @@
+import "reflect-metadata";
+import app from "@apps/server/app";
 import { env } from "@packages/env/server";
-import app from "./app";
 
 Bun.serve({
   port: new URL(env.SERVER_URL).port,

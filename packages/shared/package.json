@@ -1,11 +1,23 @@
 {
   "name": "@packages/shared",
-  "devDependencies": {
-    "@packages/tsconfig": "workspace:*"
-  },
-  "exports": {
-    "./types": "./src/types.ts"
-  },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "update": "bun update"
+  },
+  "devDependencies": {
+    "@packages/env": "workspace:*",
+    "@packages/tsconfig": "workspace:*",
+    "tsdown": "^0.19.0"
+  }
 }

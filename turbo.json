@@ -8,6 +8,11 @@
       "outputs": ["dist/**"]
     },
     "dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    },
+    "update": {
       "cache": false,
       "persistent": true
     },

@@ -3,18 +3,32 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./client": "./src/client.ts",
-    "./server": "./src/server.ts",
-    "./types": "./src/types.ts",
-    "./schema": "./src/schema.ts"
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "update": "bun update"
   },
   "dependencies": {
     "@packages/env": "workspace:*",
     "@packages/db": "workspace:*",
-    "better-auth": "^1.4.9",
-    "zod": "^4.3.2"
+    "better-auth": "^1.4.10",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@packages/tsconfig": "workspace:*"
+    "@packages/tsconfig": "workspace:*",
+    "@packages/shared": "workspace:*",
+    "tsdown": "^0.19.0",
+    "typescript": "^5.9.3"
   }
 }

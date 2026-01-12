@@ -1,0 +1,16 @@
+{
+  "name": "@apps/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/server.ts",
+    "update": "bun update"
+  },
+  "dependencies": {
+    "@apps/server": "workspace:*"
+  },
+  "devDependencies": {
+    "@packages/tsconfig": "workspace:*",
+    "typescript": "^5.9.3"
+  }
+}

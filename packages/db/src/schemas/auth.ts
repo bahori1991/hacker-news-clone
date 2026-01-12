@@ -6,7 +6,7 @@ import { commentUpvotesTable, postUpvotesTable } from "./upvotes";
 
 export const usersTable = pgTable("users", {
   id: text("id").primaryKey(),
-  name: text("name"),
+  name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").default(false).notNull(),
   image: text("image"),

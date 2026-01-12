@@ -2,15 +2,29 @@
   "name": "@packages/ddd",
   "private": true,
   "type": "module",
+  "exports": {
+    "./main/*": {
+      "types": "./dist/*/index.d.ts",
+      "default": "./dist/*/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "update": "bun update"
+  },
   "dependencies": {
-    "@packages/auth": "workspace:*",
     "@packages/db": "workspace:*",
-    "es-toolkit": "^1.43.0",
-    "inversify": "^7.10.8",
-    "reflect-metadata": "^0.2.2",
-    "zod": "^4.2.1"
+    "@packages/auth": "workspace:*",
+    "@packages/shared": "workspace:*",
+    "inversify": "^7.11.0",
+    "es-toolkit": "^1.43.0"
   },
   "devDependencies": {
-    "@packages/tsconfig": "workspace:*"
+    "@packages/tsconfig": "workspace:*",
+    "tsdown": "^0.19.0",
+    "typescript": "^5.9.3"
   }
 }

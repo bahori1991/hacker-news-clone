@@ -3,10 +3,21 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./schemas/*": "./src/schemas/*.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schemas/*": {
+      "types": "./dist/schemas/*.d.ts",
+      "default": "./dist/schemas/*.js"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsdown",
+    "update": "bun update",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -17,14 +28,17 @@
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
     "drizzle-zod": "^0.8.3",
-    "inversify": "^7.10.8",
+    "inversify": "^7.11.0",
     "pg": "^8.16.3",
-    "zod": "^4.3.2"
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@packages/tsconfig": "workspace:*",
+    "@packages/shared": "workspace:*",
     "@types/pg": "^8.16.0",
     "@types/bun": "^1.3.5",
-    "drizzle-kit": "^0.31.8"
+    "drizzle-kit": "^0.31.8",
+    "tsdown": "^0.19.0",
+    "typescript": "^5.9.3"
   }
 }

@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@packages/ddd/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

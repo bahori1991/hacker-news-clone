@@ -26,10 +26,11 @@
     "*.css": "tailwindcss"
   },
   "files.readonlyInclude": {
-    "**/node_modules": true,
-    "**/.turbo": true,
-    "**/.tanstack": true,
+    "**/node_modules/**": true,
+    "**/.turbo/**": true,
+    "**/.tanstack/**": true,
     "**/routeTree.gen.ts": true,
+    "**/dist/**": true,
     "bun.lock": true
   },
   "files.watcherExclude": {
@@ -37,6 +38,7 @@
     "**/.turbo": true,
     "**/.tanstack": true,
     "**/routeTree.gen.ts": false,
+    "**/dist": true,
     "bun.lock": true
   },
   "search.exclude": {
@@ -44,9 +46,8 @@
     "**/.turbo": true,
     "**/.tanstack": true,
     "**/routeTree.gen.ts": false,
+    "**/dist": true,
     "bun.lock": true
   },
-  "git.ignoreLimitWarning": true,
-  "typescript.preferences.includePackageJsonAutoImports": "off",
-  "typescript.suggest.autoImports": true
+  "git.ignoreLimitWarning": true
 }

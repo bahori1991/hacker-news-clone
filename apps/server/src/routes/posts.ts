@@ -425,6 +425,7 @@ export const postsRoutes = new Hono<Context>()
       }
 
       const [post] = await postQuery;
+
       if (!post) {
         throw new HTTPException(404, { message: "Post not found" });
       }
