@@ -1,12 +1,10 @@
-import { getEntryFiles } from "@packages/shared/getEntryFiles";
 import { defineConfig } from "tsdown";
 
-const entry = getEntryFiles("src");
-
 export default defineConfig({
-  entry,
+  entry: ["src/**/*.ts"],
   fixedExtension: false,
   format: ["esm"],
+  unbundle: true,
   dts: {
     eager: true,
   },
