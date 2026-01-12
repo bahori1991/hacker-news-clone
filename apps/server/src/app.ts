@@ -1,3 +1,4 @@
+import { errorHandler } from "@apps/server/error";
 import type { User } from "@packages/ddd/main/User";
 import type { Env } from "hono";
 import { Hono } from "hono";
@@ -10,6 +11,7 @@ export interface Context extends Env {
 
 const app = new Hono<Context>()
   .use("*", corsMiddleware())
+  .onError(errorHandler)
   .basePath("/api")
   .route("/auth", authRoutes);
 

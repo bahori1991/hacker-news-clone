@@ -1,11 +1,11 @@
 {
-  "name": "@packages/shared",
+  "name": "@packages/logger",
   "private": true,
   "type": "module",
   "exports": {
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "files": [
@@ -16,11 +16,13 @@
     "update": "bun update"
   },
   "dependencies": {
-    "@packages/logger": "workspace:*"
+    "@packages/env": "workspace:*",
+    "winston": "^3.19.0"
   },
   "devDependencies": {
-    "@packages/env": "workspace:*",
     "@packages/tsconfig": "workspace:*",
-    "tsdown": "^0.19.0"
+    "@types/winston": "^2.4.4",
+    "tsdown": "^0.19.0",
+    "typescript": "^5.9.3"
   }
 }

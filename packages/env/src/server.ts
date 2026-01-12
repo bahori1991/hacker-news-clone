@@ -8,12 +8,14 @@ export const env = createEnv({
     WEB_URL: z.url(),
     SERVER_URL: z.url(),
     BETTER_AUTH_SECRET: z.string().min(32),
+    LOG_FILE: z.boolean().default(false),
     NODE_ENV: z
       .enum(["development", "production", "test"])
       .default("development"),
   },
   runtimeEnvStrict: {
     DATABASE_URL: getDatabaseUrl(),
+    LOG_FILE: process.env.LOG_FILE ?? false,
     WEB_URL: process.env.WEB_URL,
     SERVER_URL: process.env.SERVER_URL,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,

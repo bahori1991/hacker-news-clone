@@ -26,6 +26,7 @@
     "@packages/ddd": "workspace:*",
     "@packages/auth": "workspace:*",
     "@packages/env": "workspace:*",
+    "@packages/logger": "workspace:*",
     "@packages/shared": "workspace:*",
     "hono": "^4.11.3",
     "reflect-metadata": "^0.2.2",
