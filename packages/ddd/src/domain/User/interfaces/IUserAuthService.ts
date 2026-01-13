@@ -19,6 +19,6 @@ export type SignInEmailProps = {
 export interface IUserAuthService {
   signUpEmail(props: SignUpEmailProps): Promise<User>;
   signInEmail(props: SignInEmailProps): Promise<User>;
-  getAuthUser(headers?: Headers): Promise<User>;
+  getAuthUser(headers?: Headers): Promise<User | null>;
   signOut(): Promise<void>;
 }

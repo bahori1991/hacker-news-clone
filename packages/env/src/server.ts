@@ -1,6 +1,19 @@
+import { dirname, resolve } from "node:path";
 import { createEnv } from "@t3-oss/env-core";
+import { fileURLToPath } from "bun";
+import { config } from "dotenv";
 import z from "zod";
-import { getDatabaseUrl } from "./db";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+config({ path: resolve(__dirname, "../.env") });
+
+const user = process.env.POSTGRES_USER;
+const password = process.env.POSTGRES_PASSWORD;
+const host = process.env.POSTGRES_HOST;
+const port = process.env.POSTGRES_PORT;
+const database = process.env.POSTGRES_DB;
 
 export const env = createEnv({
   server: {
@@ -14,7 +27,7 @@ export const env = createEnv({
       .default("development"),
   },
   runtimeEnvStrict: {
-    DATABASE_URL: getDatabaseUrl(),
+    DATABASE_URL: `postgresql://${user}:${password}@${host}:${port}/${database}`,
     LOG_FILE: process.env.LOG_FILE ?? false,
     WEB_URL: process.env.WEB_URL,
     SERVER_URL: process.env.SERVER_URL,

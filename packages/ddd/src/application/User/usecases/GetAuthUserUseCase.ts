@@ -16,8 +16,13 @@ export class GetAuthUserUseCase {
     this.#userAuthService = userAuthService;
   }
 
-  public async execute(headers?: Headers): Promise<UserDTO> {
+  public async execute(headers?: Headers): Promise<UserDTO | null> {
     const user = await this.#userAuthService.getAuthUser(headers);
+
+    if (!user) {
+      return null;
+    }
+
     const builder = new DataModelBuilder<User>();
     user.toDataModel(builder);
     return builder.build();

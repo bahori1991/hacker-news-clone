@@ -5,14 +5,17 @@
   "license": "MIT",
   "exports": {
     "./components/*": {
+      "development": "./src/components/*.tsx",
       "types": "./dist/components/*.d.ts",
       "default": "./dist/components/*.js"
     },
     "./hooks/*": {
+      "development": "./src/hooks/*.ts",
       "types": "./dist/hooks/*.d.ts",
       "default": "./dist/hooks/*.js"
     },
     "./libs/*": {
+      "development": "./src/libs/*.ts",
       "types": "./dist/libs/*.d.ts",
       "default": "./dist/libs/*.js"
     },

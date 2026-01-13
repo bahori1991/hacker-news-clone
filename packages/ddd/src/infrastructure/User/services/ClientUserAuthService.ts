@@ -1,5 +1,4 @@
 import { authClient } from "@packages/auth/client";
-import { UnauthorizedError } from "@packages/ddd/domain/User/errors/UnauthorizedError";
 import { UserSignInFailedError } from "@packages/ddd/domain/User/errors/UserSignInFailedError";
 import { UserSignUpFailedError } from "@packages/ddd/domain/User/errors/UserSignUpFailedError";
 import type {
@@ -50,11 +49,11 @@ export class ClientUserAuthService implements IUserAuthService {
     return this.#userFactory.reconstruct(data.user);
   }
 
-  public async getAuthUser(_headers?: Headers): Promise<User> {
+  public async getAuthUser(_headers?: Headers): Promise<User | null> {
     const { data: session } = await authClient.getSession();
 
     if (!session || !session.user) {
-      throw new UnauthorizedError();
+      return null;
     }
 
     return this.#userFactory.reconstruct(session.user);

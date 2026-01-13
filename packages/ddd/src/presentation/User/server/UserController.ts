@@ -29,7 +29,7 @@ export class UserController {
     this.#signOutUserUseCase = signOutUserUseCase;
   }
 
-  public async getAuthUser(headers?: Headers): Promise<UserDTO> {
+  public async getAuthUser(headers?: Headers): Promise<UserDTO | null> {
     return await this.#getAuthUserUseCase.execute(headers);
   }
 

@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun run --hot src/server.ts",
     "update": "bun update"
   },
   "dependencies": {

@@ -28,7 +28,7 @@
     "@packages/env": "workspace:*",
     "@packages/logger": "workspace:*",
     "@packages/shared": "workspace:*",
-    "hono": "^4.11.3",
+    "hono": "^4.11.4",
     "reflect-metadata": "^0.2.2",
     "zod": "^4.3.5"
   },
