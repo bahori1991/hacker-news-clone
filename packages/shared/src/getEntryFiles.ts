@@ -11,7 +11,9 @@ function getAllTsFiles(baseDir: string): string[] {
       files.push(...getAllTsFiles(fullPath));
     } else if (
       entry.isFile() &&
-      (extname(entry.name) === ".ts" || extname(entry.name) === ".tsx")
+      (extname(entry.name) === ".ts" ||
+        extname(entry.name) === ".tsx" ||
+        extname(entry.name) === ".css")
     ) {
       files.push(fullPath);
     }

@@ -16,11 +16,12 @@
     "update": "bun update"
   },
   "dependencies": {
-    "@packages/db": "workspace:*",
     "@packages/auth": "workspace:*",
+    "@packages/db": "workspace:*",
     "@packages/shared": "workspace:*",
+    "es-toolkit": "^1.43.0",
     "inversify": "^7.11.0",
-    "es-toolkit": "^1.43.0"
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@packages/tsconfig": "workspace:*",

@@ -1,3 +1,5 @@
+import type { UserSignInCommand } from "@packages/ddd/application/User/commands/UserSignInCommand";
+import type { UserSignUpCommand } from "@packages/ddd/application/User/commands/UserSignUpCommand";
 import type { UserDTO } from "@packages/ddd/application/User/dto/UserDTO";
 import { USER_APPLICATION_SYMBOL } from "@packages/ddd/application/User/symbols/UserApplicationSymbol";
 import type { GetAuthUserUseCase } from "@packages/ddd/application/User/usecases/GetAuthUserUseCase";
@@ -33,19 +35,11 @@ export class UserController {
     return await this.#getAuthUserUseCase.execute(headers);
   }
 
-  public async signUp(props: {
-    email: string;
-    password: string;
-    name: string;
-    image?: string;
-  }): Promise<UserDTO> {
+  public async signUp(props: UserSignUpCommand): Promise<UserDTO> {
     return await this.#signUpUserUseCase.execute(props);
   }
 
-  public async signIn(props: {
-    email: string;
-    password: string;
-  }): Promise<UserDTO> {
+  public async signIn(props: UserSignInCommand): Promise<UserDTO> {
     return await this.#signInUserUseCase.execute(props);
   }
 
